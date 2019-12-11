@@ -1,35 +1,22 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
-
-void vigenere(string);
-
 int main(int argc, string argv[])
 {
-    if (argc == 2) {
-        vigenere(argv[1]);
-        return 0;
-    } else {
-        printf("Not Quite\n");
-        return 1;
-    }
-}
-
-void vigenere(string kw) {
-    int len = strlen(kw);
-    int ca[len];
-    for (int i = 0; i < len; i++) {
-        char c = kw[i];
-        if (c >= 'A' && c <='Z') {
-            ca[i] = c - 65;
-            printf("%i\n", c-65);
-        } else if (c >= 'a' && c <= 'z') {
-            ca[i] = c - 97;
-            printf("%i\n", c-97);
+    string key = get_string("Key: ");
+    string p = get_string("Word: ");
+    int n = strlen(p);
+    
+    for (int i = 0; i < n; i++) {
+        int k = key[i];
+        if(p[i] >= 'A' && p[i] <= 'Z') {
+            printf("%c", p[i] + (k-'A'));
+            printf("%i", 'A' - (k + 'A'));
+            
+        } else if (p[i] >= 'a' && p[i] <= 'z'){
+            printf("%c", p[i] + (k-'a'));
+            printf("%c", (k-'a'));
         }
+        
     }
-    for (int i=0; i< len; i++) {
-        printf("%i", ca[i]);
-    }
-    printf("%s", kw);
 }
