@@ -74,8 +74,7 @@ int main(int argc, char *argv[])
             // read RGB triple from infile
             fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
             
-            if (triple.rgbtBlue != 0xff &&  
-                triple.rgbtRed == 0xff) {
+            if (triple.rgbtBlue != 0xff && triple.rgbtRed == 0xff) {
                 
                 triple.rgbtBlue = 0xff;
                 triple.rgbtGreen = 0xff;
